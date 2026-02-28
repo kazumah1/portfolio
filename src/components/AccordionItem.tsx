@@ -123,9 +123,9 @@ export const AccordionItem = ({
                 </ul>
               ) : null}
 
-              <div className="max-w-[240px] pt-1 sm:max-w-[280px]">
+              {/* <div className="max-w-[240px] pt-1 sm:max-w-[280px]">
                 <MediaSlot media={item.media} label={item.role} />
-              </div>
+              </div> */}
 
               {item.links && item.links.length > 0 ? (
                 <div className="flex flex-wrap gap-4 text-[0.94rem]">

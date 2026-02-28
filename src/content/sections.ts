@@ -29,13 +29,13 @@ export const sectionPageOrder: SectionId[] = [
 
 const experienceItems: AccordionEntry[] = [
   {
-    id: "exp-neural-systems",
-    role: "Frontend Engineer",
-    org: "Neural Systems Lab",
-    dates: "2024 - Present",
-    tags: ["frontend", "observability", "real-time"],
+    id: "exp-qualcomm",
+    role: "Technical Project Manager Intern (Contract)",
+    org: "Qualcomm",
+    dates: "Sep 2025 - Present",
+    tags: ["on-device LLM Agents", "ONNX", "RAG", "MCP"],
     summary:
-      "Built operator-facing interfaces for model observability and experiment control where response time and confidence under pressure mattered equally.",
+      "operator-facing interfaces for model observability and experiment control where response time and confidence under pressure mattered equally.",
     body: [
       "The team needed a front-end surface that could keep up with streaming evaluation telemetry without collapsing into noise. The challenge was as much about trust as speed: operators needed to feel confident that what they were seeing matched system reality.",
       "I designed and implemented a calmer observability console with typed event contracts and deterministic replay tooling. The UI focused on explicit state transitions and consistent event semantics so operational discussions could stay concrete.",
@@ -60,17 +60,17 @@ const experienceItems: AccordionEntry[] = [
     ],
     media: {
       type: "image",
-      src: "/images/experience-neural.svg",
-      alt: "Neural Systems Lab logo"
+      src: "/images/qualcomm.png",
+      alt: "Qualcomm logo"
     },
     links: [{ label: "Organization", href: "https://example.com/neural" }]
   },
   {
-    id: "exp-infra-ux",
-    role: "Product Engineer",
-    org: "Infrastructure Platform Team",
-    dates: "2022 - 2024",
-    tags: ["platform", "developer-experience", "ui"],
+    id: "exp-demind",
+    role: "ML Software Engineer Intern",
+    org: "DeMind Inc",
+    dates: "May 2025 - Feb 2026",
+    tags: ["regression", "signal processing", "wearable data", "stress prediction"],
     summary:
       "Delivered deployment-safety and service-ownership tools that made risky operational work more legible across platform and application teams.",
     body: [
@@ -97,17 +97,17 @@ const experienceItems: AccordionEntry[] = [
     ],
     media: {
       type: "image",
-      src: "/images/experience-infra.svg",
-      alt: "Infrastructure platform visualization"
+      src: "/images/demind.jpeg",
+      alt: "DeMind logo"
     },
-    links: [{ label: "Case Notes", href: "https://example.com/infra-notes" }]
+    links: []
   },
   {
-    id: "exp-research-assistant",
-    role: "Research Assistant",
-    org: "Human-Computer Interaction Studio",
-    dates: "2021 - 2022",
-    tags: ["research", "hci", "visualization"],
+    id: "exp-xiberlinc",
+    role: "Software Engineer Intern",
+    org: "Xiberlinc Inc",
+    dates: "Jan 2025 - July 2025",
+    tags: ["EEG", "data processing", "audio features"],
     summary:
       "Prototyped interaction models for interpreting high-dimensional model behavior and translating abstract uncertainty into usable interface choices.",
     body: [
@@ -129,20 +129,20 @@ const experienceItems: AccordionEntry[] = [
     },
     media: {
       type: "image",
-      src: "/images/experience-hci.svg",
-      alt: "HCI studio sample visualization"
+      src: "/images/xiberlinc.jpeg",
+      alt: "Xiberlinc logo"
     },
-    links: [{ label: "Lab", href: "https://example.com/hci" }]
+    links: []
   }
 ];
 
 const leadershipItems: AccordionEntry[] = [
   {
-    id: "lead-studio-captain",
-    role: "Engineering Studio Captain",
-    org: "Product Engineering Guild",
-    dates: "2024 - Present",
-    tags: ["mentorship", "architecture", "team-systems"],
+    id: "lead-valley-PL",
+    role: "Technical Project Lead",
+    org: "Valley Consulting Group",
+    dates: "Sep 2025 - Present",
+    tags: ["mentorship", "education", "code reviews"],
     summary:
       "Facilitated architecture reviews and raised implementation quality bars through better technical framing rather than more process overhead.",
     body: [
@@ -169,17 +169,17 @@ const leadershipItems: AccordionEntry[] = [
     ],
     media: {
       type: "image",
-      src: "/images/leadership-captain.svg",
-      alt: "Engineering Studio Captain mark"
+      src: "/images/valley.png",
+      alt: "VCG logo"
     },
-    links: [{ label: "Playbook", href: "https://example.com/leadership-playbook" }]
+    links: []
   },
   {
-    id: "lead-community-builder",
-    role: "Community Builder",
-    org: "University Tech Collective",
-    dates: "2022 - 2024",
-    tags: ["education", "community", "frontend"],
+    id: "lead-ntab-software-lead",
+    role: "Software Division Lead",
+    org: "Neurotech@Berkeley (NT@B)",
+    dates: "Dec 2025 - Present",
+    tags: ["education", "deep learning", "signal processing", "neural data"],
     summary:
       "Organized workshops and learning paths around robust frontend architecture, technical judgment, and product-level thinking.",
     body: [
@@ -200,8 +200,9 @@ const leadershipItems: AccordionEntry[] = [
       ]
     },
     media: {
-      type: "placeholder",
-      alt: "NDA leadership project placeholder"
+      type: "image",
+      src: "/images/neurotech.jpeg",
+      alt: "NTAB logo"
     },
     note:
       "Some workshop artifacts remain private because they were developed with partner organizations.",

@@ -9,23 +9,22 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     subtitle: "",
     year: "2025-2026",
     dek:
-      "A time-aligned reasoning surface that merges operational, product, and user signals into one investigation timeline.",
-    tags: ["RNN-GRU", "RNN Transducer", "n-gram", "LLM"],
+      "A neural speech-decoding system that maps intracortical motor signals to text using RNNT-based architectures and neural language model rescoring.",
+    tags: ["PyTorch", "GRU", "RNNT", "n-gram", "NLP", "Neural Decoding", "Signal Processing"],
     media: {
       kind: "image",
-      src: "/images/project-signal-weave.svg",
-      alt: "Signal Weave timeline interface",
+      src: "/images/brain2text.png",
+      alt: "Brain to Text pipeline",
       aspect: "landscape"
     },
     heroMedia: {
       type: "image",
-      src: "/images/project-signal-weave.svg",
-      alt: "Signal Weave hero interface preview",
+      src: "/images/brain2text.png",
+      alt: "Brain to Text pipeline",
       aspect: "landscape"
     },
     links: [
-      { label: "GitHub", href: "https://github.com/your-handle/signal-weave" },
-      { label: "Demo", href: "https://example.com/signal-weave" }
+      { label: "GitHub", href: "https://github.com/bealowman/brain-to-text-working" },
     ],
     sections: [
       {
@@ -60,27 +59,81 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       }
     ]
   },
-  {
-    slug: "atlas-sim",
-    title: "Atlas Sim",
-    subtitle: "Scenario planning sandbox",
-    year: "2024",
+    {
+    slug: "atlas",
+    title: "Atlas",
+    subtitle: "A modular research ingestion and retrieval system that continuously pulls papers from academic sources, processes PDFs into structured artifacts and embeddings, and supports hybrid (vector + keyword) search with personalized ranking.",
+    year: "2025-Present",
     dek:
-      "An interactive simulation panel designed to make policy and allocation decisions more explainable than opaque spreadsheets ever could.",
-    tags: ["Simulation", "UI", "Decision-Support"],
+      "A modular research ingestion and retrieval system that pulls academic papers, extracts structured content and embeddings, and supports hybrid semantic search with personalized ranking.",
+    tags: ["Redis", "PostgreSQL/pgvector", "FastAPI", "Google Cloud Storage", "Docker"],
     media: {
       kind: "image",
-      src: "/images/project-atlas-sim.svg",
-      alt: "Atlas Sim scenario sandbox",
+      src: "/images/atlas.png",
+      alt: "",
+      aspect: "landscape",
+    },
+    heroMedia: {
+      type: "image",
+      src: "/images/atlas.png",
+      alt: "",
+      aspect: "landscape"
+    },
+    note:
+      "",
+    links: [
+      { label: "GitHub", href: "https://github.com/kazumah1/atlas" }, 
+    ],
+    sections: [
+      {
+        id: "context",
+        heading: "Context",
+        body:
+          "NeuroGrid was built during a short hackathon window, so the problem had to be framed narrowly. We focused on a tutor that responds to learner confidence rather than just correctness, because pacing and intervention style often matter as much as the content itself."
+      },
+      {
+        id: "what-i-built",
+        heading: "What I built",
+        body:
+          "I worked on the interaction loop: onboarding, confidence capture, escalating hints, and the response structure around remediation. The goal was to make the product feel composed and adaptive even though the underlying build timeline was compressed."
+      },
+      {
+        id: "tradeoffs",
+        heading: "Tradeoffs",
+        body:
+          "Hackathon software forces aggressive prioritization. The system favored a clean and believable end-to-end experience over a deeper set of features. That tradeoff was worthwhile because it let us ship something coherent instead of a scattered demo."
+      },
+      {
+        id: "results",
+        heading: "Results",
+        body:
+          "The prototype shipped in under two days, placed as a finalist in its track, and reinforced how much interaction pacing can change the perceived intelligence of a system. Even a constrained build can feel thoughtful if the product loop is well-shaped."
+      }
+    ]
+  },
+  {
+    slug: "wingman",
+    title: "Wingman",
+    subtitle: "Teleoperating a robot with AR glasses",
+    year: "2025",
+    dek:
+      "A real-time AR teleoperation interface that lets users control a LeKiwi robot using Snap Spectacles head tracking and an on-screen HUD.",
+    tags: ["TypeScript (Lens Studio)", "FastAPI", "Websockets", "Computer Vision", "XR", "Robotics"],
+    media: {
+      kind: "image",
+      src: "/images/wingman.png",
+      alt: "Wingman project mark",
       aspect: "landscape"
     },
     heroMedia: {
       type: "image",
-      src: "/images/project-atlas-sim.svg",
-      alt: "Atlas Sim hero simulation view",
+      src: "/images/wingman.png",
+      alt: "Wingman project mark",
       aspect: "landscape"
     },
-    links: [{ label: "GitHub", href: "https://github.com/your-handle/atlas-sim" }],
+    links: [{
+      label: "Devpost", href: "https://devpost.com/software/wingman-9xok8b"
+    }],
     sections: [
       {
         id: "context",
@@ -109,31 +162,29 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     ]
   },
   {
-    slug: "neurogrid",
-    title: "NeuroGrid",
-    subtitle: "Hackathon prototype for adaptive tutoring",
-    year: "2023",
+    slug: "live-label",
+    title: "LiveLabel",
+    subtitle: "A local real-time vision system performing YOLO and SAM object detection, segmentation, tracking, and LLM-based scene reasoning using asynchronous inference.",
+    year: "2025",
     dek:
-      "A fast-turnaround tutoring prototype that adapts hints and pacing based on confidence rather than assuming linear progress.",
-    tags: ["Hackathon", "Education", "LLM"],
+      "A local real-time vision system performing object detection, segmentation, tracking, and LLM-based scene reasoning using asynchronous inference.",
+    tags: ["opencv", "Computer Vision", "YOLO", "SAM", "on-device LLM"],
     media: {
-      kind: "logo",
-      src: "/images/project-neurogrid.svg",
-      alt: "NeuroGrid project mark",
-      aspect: "square",
-      placeholderMonogram: "NG"
+      kind: "image",
+      src: "/images/livelabel.png",
+      alt: "LiveLabel project mark",
+      aspect: "landscape",
     },
     heroMedia: {
       type: "image",
-      src: "/images/project-neurogrid.svg",
-      alt: "NeuroGrid hero mark",
-      aspect: "square"
+      src: "/images/livelabel.png",
+      alt: "LiveLabel hero mark",
+      aspect: "landscape"
     },
     note:
-      "This was built under tight time constraints, so the case study focuses on interaction design and iteration speed rather than production hardening.",
+      "",
     links: [
-      { label: "GitHub", href: "https://github.com/your-handle/neurogrid" },
-      { label: "Devpost", href: "https://devpost.com/software/neurogrid" }
+      { label: "GitHub", href: "https://github.com/kazumah1/live-label" }, 
     ],
     sections: [
       {
@@ -161,7 +212,59 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
           "The prototype shipped in under two days, placed as a finalist in its track, and reinforced how much interaction pacing can change the perceived intelligence of a system. Even a constrained build can feel thoughtful if the product loop is well-shaped."
       }
     ]
-  }
+  },
+  {
+    slug: "coffy",
+    title: "Coffy",
+    subtitle: "A tool-based LLM scheduling assistant that coordinates multi-party events through calendar integration and SMS communication.",
+    year: "2025",
+    dek:
+      "A tool-based LLM scheduling assistant that coordinates multi-party events through calendar integration and SMS communication.",
+    tags: ["fastapi", "react native", "LLM agents", "tool orchestration", "Supabase"],
+    media: {
+      kind: "image",
+      src: "/images/coffy.png",
+      alt: "Coffy project mark",
+      aspect: "landscape",
+    },
+    heroMedia: {
+      type: "image",
+      src: "/images/coffy.png",
+      alt: "Coffy hero mark",
+      aspect: "landscape"
+    },
+    note:
+      "",
+    links: [
+      { label: "GitHub", href: "https://github.com/kazumah1/coffy" }, 
+    ],
+    sections: [
+      {
+        id: "context",
+        heading: "Context",
+        body:
+          "NeuroGrid was built during a short hackathon window, so the problem had to be framed narrowly. We focused on a tutor that responds to learner confidence rather than just correctness, because pacing and intervention style often matter as much as the content itself."
+      },
+      {
+        id: "what-i-built",
+        heading: "What I built",
+        body:
+          "I worked on the interaction loop: onboarding, confidence capture, escalating hints, and the response structure around remediation. The goal was to make the product feel composed and adaptive even though the underlying build timeline was compressed."
+      },
+      {
+        id: "tradeoffs",
+        heading: "Tradeoffs",
+        body:
+          "Hackathon software forces aggressive prioritization. The system favored a clean and believable end-to-end experience over a deeper set of features. That tradeoff was worthwhile because it let us ship something coherent instead of a scattered demo."
+      },
+      {
+        id: "results",
+        heading: "Results",
+        body:
+          "The prototype shipped in under two days, placed as a finalist in its track, and reinforced how much interaction pacing can change the perceived intelligence of a system. Even a constrained build can feel thoughtful if the product loop is well-shaped."
+      }
+    ]
+  },
 ];
 
 export const projectSlugs = projectCaseStudies.map((project) => ({ slug: project.slug }));
