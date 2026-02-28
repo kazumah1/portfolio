@@ -81,13 +81,20 @@ const SectionBrainHeaderBody = ({
   pointTexture
 }: SectionBrainHeaderBodyProps): JSX.Element | null => {
   const sharedData = useBrainSharedData();
+  const isAboutSection = sectionId === "about";
+  const targetScale = isAboutSection ? SECTION_HEADER_SCALE * 0.84 : SECTION_HEADER_SCALE;
+  const targetY = isAboutSection ? SECTION_HEADER_Y + 0.1 : SECTION_HEADER_Y;
+  const targetCameraZ = isAboutSection ? SECTION_HEADER_CAMERA_Z + 0.24 : SECTION_HEADER_CAMERA_Z;
+  const targetCameraFov = isAboutSection
+    ? SECTION_HEADER_CAMERA_FOV + 1.8
+    : SECTION_HEADER_CAMERA_FOV;
 
   const groupRef = useRef<THREE.Group>(null);
   const cameraZRef = useRef(
-    initialPose ? CAMERA_DISTANCE : SECTION_HEADER_CAMERA_Z
+    initialPose ? CAMERA_DISTANCE : targetCameraZ
   );
   const cameraFovRef = useRef(
-    initialPose ? CAMERA_FOV : SECTION_HEADER_CAMERA_FOV
+    initialPose ? CAMERA_FOV : targetCameraFov
   );
   const baseMaterialRef = useRef<THREE.PointsMaterial>(null);
   const overlayMaterialRef = useRef<THREE.PointsMaterial>(null);
@@ -138,15 +145,15 @@ const SectionBrainHeaderBody = ({
       cameraZRef.current = CAMERA_DISTANCE;
       cameraFovRef.current = CAMERA_FOV;
     } else {
-      group.position.set(0, SECTION_HEADER_Y, 0);
-      group.scale.setScalar(SECTION_HEADER_SCALE);
-      cameraZRef.current = SECTION_HEADER_CAMERA_Z;
-      cameraFovRef.current = SECTION_HEADER_CAMERA_FOV;
+      group.position.set(0, targetY, 0);
+      group.scale.setScalar(targetScale);
+      cameraZRef.current = targetCameraZ;
+      cameraFovRef.current = targetCameraFov;
       if (focusQuaternion) {
         group.quaternion.copy(focusQuaternion);
       }
     }
-  }, [focusQuaternion, initialPose, sectionId]);
+  }, [focusQuaternion, initialPose, targetCameraFov, targetCameraZ, targetScale, targetY]);
 
   useFrame((state) => {
     const group = groupRef.current;
@@ -172,24 +179,24 @@ const SectionBrainHeaderBody = ({
     group.position.x = lerp(group.position.x, 0, SECTION_HEADER_TRANSFORM_LERP);
     group.position.y = lerp(
       group.position.y,
-      SECTION_HEADER_Y,
+      targetY,
       SECTION_HEADER_TRANSFORM_LERP
     );
     group.position.z = lerp(group.position.z, 0, SECTION_HEADER_TRANSFORM_LERP);
 
     group.scale.setScalar(
-      lerp(group.scale.x, SECTION_HEADER_SCALE, SECTION_HEADER_TRANSFORM_LERP)
+      lerp(group.scale.x, targetScale, SECTION_HEADER_TRANSFORM_LERP)
     );
 
     const camera = state.camera as THREE.PerspectiveCamera;
     cameraZRef.current = lerp(
       cameraZRef.current,
-      SECTION_HEADER_CAMERA_Z,
+      targetCameraZ,
       SECTION_HEADER_CAMERA_LERP
     );
     cameraFovRef.current = lerp(
       cameraFovRef.current,
-      SECTION_HEADER_CAMERA_FOV,
+      targetCameraFov,
       SECTION_HEADER_CAMERA_LERP
     );
     camera.position.set(0, 0, cameraZRef.current);
@@ -294,8 +301,14 @@ export const SectionBrainHeader = ({
     };
   }, [pointTexture]);
 
-  const initialCameraZ = initialPose ? CAMERA_DISTANCE : SECTION_HEADER_CAMERA_Z;
-  const initialCameraFov = initialPose ? CAMERA_FOV : SECTION_HEADER_CAMERA_FOV;
+  const isAboutSection = sectionId === "about";
+  const targetCameraZ = isAboutSection ? SECTION_HEADER_CAMERA_Z + 0.24 : SECTION_HEADER_CAMERA_Z;
+  const targetCameraFov = isAboutSection
+    ? SECTION_HEADER_CAMERA_FOV + 1.8
+    : SECTION_HEADER_CAMERA_FOV;
+
+  const initialCameraZ = initialPose ? CAMERA_DISTANCE : targetCameraZ;
+  const initialCameraFov = initialPose ? CAMERA_FOV : targetCameraFov;
 
   return (
     <Canvas

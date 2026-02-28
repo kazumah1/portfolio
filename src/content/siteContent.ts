@@ -72,8 +72,8 @@ export const siteContent: SiteContent = {
     tagline: "Building controlled intelligence interfaces for real-world systems.",
     accentColor: "#FF8A1A",
     links: {
-      github: "https://github.com/your-handle",
-      linkedin: "https://linkedin.com/in/your-handle",
+      github: "https://github.com/kazumah1",
+      linkedin: "https://linkedin.com/in/kazuma-hakushi",
       email: "mailto:you@example.com"
     },
     seo: {

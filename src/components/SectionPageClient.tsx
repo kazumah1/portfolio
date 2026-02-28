@@ -29,7 +29,7 @@ export const SectionPageClient = ({ sectionId }: SectionPageClientProps): JSX.El
     experience: "View roles",
     projects: "View projects",
     leadership: "View roles",
-    interests: "View sections",
+    interests: "View interests",
     about: "View sections"
   };
 
@@ -42,7 +42,7 @@ export const SectionPageClient = ({ sectionId }: SectionPageClientProps): JSX.El
       <div
         className={
           isAboutSection
-            ? "h-[250px] sm:h-[290px] lg:h-[320px]"
+            ? "h-[280px] sm:h-[320px] lg:h-[360px]"
             : "h-[260px] sm:h-[300px] lg:h-[340px]"
         }
       >
@@ -57,9 +57,19 @@ export const SectionPageClient = ({ sectionId }: SectionPageClientProps): JSX.El
   );
 
   const intro = isInterestsSection ? (
-    <p className="max-w-[68ch] text-[1.03rem] leading-[1.82] text-fg/76 sm:text-[1.1rem]">
-      {interestsIntro}
-    </p>
+    <div className="max-w-[70ch] space-y-5">
+      <p className="max-w-[68ch] text-[1.03rem] leading-[1.82] text-fg/76 sm:text-[1.1rem]">
+        {interestsIntro}
+      </p>
+      <a
+        href="#items"
+        aria-label="Scroll to view interests"
+        className="inline-flex items-center gap-2 rounded-sm px-0.5 py-1.5 font-mono text-[0.72rem] uppercase tracking-[0.14em] text-fg/58 underline decoration-transparent underline-offset-[0.24em] transition-colors duration-150 hover:text-accent hover:decoration-accent/75 focus-visible:outline-none focus-visible:text-accent focus-visible:decoration-accent/75"
+      >
+        <span aria-hidden="true">↓</span>
+        View interests
+      </a>
+    </div>
   ) : (
     <div className="max-w-[70ch] space-y-5">
       <MarkdownContent content={section.intro} />

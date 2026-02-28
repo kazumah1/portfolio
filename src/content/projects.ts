@@ -4,13 +4,13 @@ export type { ProjectCaseStudy } from "@/content/editorialTypes";
 
 export const projectCaseStudies: ProjectCaseStudy[] = [
   {
-    slug: "signal-weave",
-    title: "Signal Weave",
-    subtitle: "Cross-source telemetry synthesis",
-    year: "2025",
+    slug: "brain-to-text",
+    title: "Brain-to-Text",
+    subtitle: "",
+    year: "2025-2026",
     dek:
       "A time-aligned reasoning surface that merges operational, product, and user signals into one investigation timeline.",
-    tags: ["Featured", "Visualization", "Full-Stack"],
+    tags: ["RNN-GRU", "RNN Transducer", "n-gram", "LLM"],
     media: {
       kind: "image",
       src: "/images/project-signal-weave.svg",
