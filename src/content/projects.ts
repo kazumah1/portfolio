@@ -167,13 +167,13 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     tags: ["OpenCV", "YOLO", "SAM", "Local LLM"],
     media: {
       kind: "image",
-      src: "/images/livelabel.png",
+      src: "/images/project-neurogrid.svg",
       alt: "LiveLabel project visual",
       aspect: "landscape"
     },
     heroMedia: {
       type: "image",
-      src: "/images/livelabel.png",
+      src: "/images/project-neurogrid.svg",
       alt: "LiveLabel project visual",
       aspect: "landscape"
     },
