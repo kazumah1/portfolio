@@ -7,7 +7,8 @@ import type { RefObject } from "react";
 import * as THREE from "three";
 
 import type { SectionId } from "@/content/siteContent";
-import { sectionMeta, siteContent } from "@/content/siteContent";
+import { sectionMeta } from "@/content/sections";
+import { siteContent } from "@/content/siteContent";
 
 import { LABEL_LINE_PX, LABEL_OFFSET_PX } from "@/three/brainTuning";
 

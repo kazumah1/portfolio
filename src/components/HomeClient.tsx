@@ -6,8 +6,8 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { EdgeNav } from "@/components/EdgeNav";
 import { Header } from "@/components/Header";
 import { useTransitionProvider } from "@/components/TransitionProvider";
+import { sectionPageOrder } from "@/content/sections";
 import type { SectionId } from "@/content/siteContent";
-import { siteContent } from "@/content/siteContent";
 import { usePrefersReducedMotion, useScrollActivity } from "@/lib/hooks";
 import { useUIStore } from "@/lib/store";
 import { BrainScene } from "@/three/BrainScene";
@@ -43,7 +43,7 @@ export const HomeClient = (): JSX.Element => {
 
   useEffect(() => {
     void preloadBrainSharedData();
-    siteContent.sectionOrder.forEach((sectionId) => {
+    sectionPageOrder.forEach((sectionId) => {
       router.prefetch(`/${sectionId}`);
       prefetchedRoutesRef.current.add(sectionId);
     });

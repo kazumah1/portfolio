@@ -30,71 +30,72 @@ export const sectionPageOrder: SectionId[] = [
 const experienceItems: AccordionEntry[] = [
   {
     id: "exp-qualcomm",
-    role: "Technical Project Manager Intern (Contract)",
+    role: "Technical Project Manager Intern (Contracted)",
     org: "Qualcomm",
-    dates: "Sep 2025 - Present",
-    tags: ["on-device LLM Agents", "ONNX", "RAG", "MCP"],
-    summary:
-      "operator-facing interfaces for model observability and experiment control where response time and confidence under pressure mattered equally.",
-    body: [
-      "The team needed a front-end surface that could keep up with streaming evaluation telemetry without collapsing into noise. The challenge was as much about trust as speed: operators needed to feel confident that what they were seeing matched system reality.",
-      "I designed and implemented a calmer observability console with typed event contracts and deterministic replay tooling. The UI focused on explicit state transitions and consistent event semantics so operational discussions could stay concrete.",
-      "Over time this reduced ambiguity in incident reviews and made experimentation workflows materially easier to reason about across engineering and research partners."
+    dates: "2025 - Present",
+    tags: [
+      "Python",
+      "TypeScript",
+      "FAISS",
+      "FastMCP",
+      "RAG pipelines",
+      "LLM inference optimization",
+      "Memory profiling",
+      "Tool integration",
+      "Cross-platform runtime design",
+      "Vector indexing",
+      "On-device deployment"
     ],
+    summary:
+      "Built a cross-platform runtime interface for on-device LLM agents across Snapdragon X Elite, Mac, and Windows. Improved inference performance and memory efficiency while integrating retrieval and tool-calling capabilities into a compact, deployable pipeline.",
+    body: [],
     sections: {
-      context: [
-        "Existing tools rendered plenty of information but offered weak narrative continuity, which made high-pressure debugging brittle."
-      ],
       whatIBuilt: [
-        "A browser-based control surface with stream-safe rendering, replay, and traceable state derivation.",
-        "Shared front-end/back-end event typing to lower drift across system boundaries."
-      ],
-      results: [
-        "Interaction latency dropped during active runs, and reliability reviews shifted from guesswork to reproducible evidence."
+        "- Achieved ~60% faster inference and ~20% lower RAM usage than Ollama with 32K token support",
+        "- Built a RAG + MCP pipeline using FAISS and FastMCP",
+        "- Managed 3M x 768-dim vectors under 16GB RAM",
+        "- Integrated 15+ Microsoft 365 tools into a unified agent interface"
       ]
     },
-    impactBullets: [
-      "Improved operator confidence during live experiments.",
-      "Reduced ambiguity during reliability reviews.",
-      "Established a reusable event-contract pattern for future tools."
-    ],
     media: {
       type: "image",
       src: "/images/qualcomm.png",
       alt: "Qualcomm logo"
     },
-    links: [{ label: "Organization", href: "https://example.com/neural" }]
+    links: []
   },
   {
     id: "exp-demind",
-    role: "ML Software Engineer Intern",
-    org: "DeMind Inc",
-    dates: "May 2025 - Feb 2026",
-    tags: ["regression", "signal processing", "wearable data", "stress prediction"],
+    role: "Machine Learning Software Engineering Intern",
+    org: "DeMind",
+    dates: "2025",
+    tags: [
+      "Python",
+      "Signal processing",
+      "EEG pipelines",
+      "Time-series modeling",
+      "Regression",
+      "Feature engineering",
+      "Adaptive baselines",
+      "Real-time systems",
+      "Model calibration",
+      "Wearable data integration"
+    ],
     summary:
-      "Delivered deployment-safety and service-ownership tools that made risky operational work more legible across platform and application teams.",
+      "Built real-time stress prediction systems from biometric and EEG streams, focusing on adaptive baselines and personalization under noisy physiological data.",
     body: [
-      "Platform workflows existed, but the interface layer around them was fragmented and easy to misread under pressure. Most issues were not missing features; they were missing clarity.",
-      "I rebuilt core deployment and ownership touchpoints with clearer state models, service boundaries, and release context. Health signals, rollout progress, and owner metadata became first-class UI elements.",
-      "The result was a safer release posture and a better on-call experience, because teams could interpret system state faster and act with less uncertainty."
+      "The core challenge was that physiological signals are non-stationary. Baseline heart rate, HRV, and EEG band power drift over time and vary across individuals. A static threshold model was not viable."
     ],
     sections: {
-      context: [
-        "The existing internal tooling had high functional coverage but low interpretability in time-sensitive scenarios."
-      ],
       whatIBuilt: [
-        "Deployment and ownership surfaces designed around explicit risk signals.",
-        "Interaction flows that prioritized quick triage and clearer accountability."
-      ],
-      results: [
-        "More predictable delivery windows and fewer avoidable rollout failures."
+        "- Designed a preprocessing pipeline that included signal smoothing, artifact rejection, bandpower extraction (alpha, beta, gamma), HRV feature engineering, and sliding-window aggregation for time-series modeling.",
+        "- Implemented two adaptive baseline strategies:",
+        "- Rolling-window normalization with decay weighting",
+        "- Context-aware baselines conditioned on time-of-day and recent activity state",
+        "- Built regression models for stress scoring and calibrated outputs against commercial wearables including IDUN Guardian EEG, Garmin HRV metrics, Fitbit stress indicators, and Apple Watch heart-rate derived signals.",
+        "- Optimized inference for real-time scoring under live data streams and validated alignment across devices for over 100 active users."
       ]
     },
-    impactBullets: [
-      "Reduced failed deploy incidents.",
-      "Improved service ownership visibility.",
-      "Lowered cognitive load during on-call handoffs."
-    ],
     media: {
       type: "image",
       src: "/images/demind.jpeg",
@@ -104,27 +105,27 @@ const experienceItems: AccordionEntry[] = [
   },
   {
     id: "exp-xiberlinc",
-    role: "Software Engineer Intern",
-    org: "Xiberlinc Inc",
-    dates: "Jan 2025 - July 2025",
-    tags: ["EEG", "data processing", "audio features"],
-    summary:
-      "Prototyped interaction models for interpreting high-dimensional model behavior and translating abstract uncertainty into usable interface choices.",
-    body: [
-      "My research focused on how people inspect latent-space and model-behavior transitions without getting overwhelmed by abstraction. The key question was which visual and interaction metaphors actually improved reasoning quality.",
-      "I built and tested prototypes in Three.js and D3, comparing different focus and slicing approaches with both academic and industry participants.",
-      "This work strengthened my bias toward restrained systems UI: expose uncertainty honestly, but keep the interaction model calm and legible."
+    role: "Software Engineering Intern",
+    org: "Xiberlinc",
+    dates: "2025",
+    tags: [
+      "Python",
+      "Parselmouth",
+      "Audio signal processing",
+      "Feature extraction",
+      "Dataset construction",
+      "Runtime benchmarking",
+      "ML preprocessing pipelines",
+      "Time-series feature engineering"
     ],
+    summary:
+      "Constructed structured datasets from large-scale voice recordings for downstream EEG prediction research. Focused on runtime tradeoffs and feature quality across audio processing libraries.",
+    body: [],
     sections: {
-      context: [
-        "Complex model behavior is often difficult to communicate because most visualizations prioritize novelty over interpretability."
-      ],
       whatIBuilt: [
-        "Rapid prototypes for focus-plus-context exploration.",
-        "Evaluation workflows that compared interaction metaphors under real analysis tasks."
-      ],
-      results: [
-        "Clearer recommendations for interface patterns that support faster and more reliable model inspection."
+        "- Processed 15,000+ seconds of audio",
+        "- Benchmarked feature extraction methods across runtime and predictive utility",
+        "- Achieved real-time factor ~0.5 in audio feature extraction"
       ]
     },
     media: {
@@ -138,96 +139,71 @@ const experienceItems: AccordionEntry[] = [
 
 const leadershipItems: AccordionEntry[] = [
   {
-    id: "lead-valley-PL",
-    role: "Technical Project Lead",
+    id: "lead-valley-project-lead",
+    role: "Project Lead",
     org: "Valley Consulting Group",
-    dates: "Sep 2025 - Present",
-    tags: ["mentorship", "education", "code reviews"],
-    summary:
-      "Facilitated architecture reviews and raised implementation quality bars through better technical framing rather than more process overhead.",
-    body: [
-      "This role centered on decision quality. Teams needed architecture and implementation reviews that increased clarity without creating ceremonial friction.",
-      "I introduced a review cadence built around explicit tradeoff framing, decision logs, and risk narratives that could be consumed by both builders and reviewers.",
-      "As a result, teams moved faster through critical decisions while keeping better alignment on long-term system consequences."
+    dates: "2025 - Present",
+    tags: [
+      "System design",
+      "LLM agents",
+      "Finance data modeling",
+      "Architecture reviews",
+      "Decision logs",
+      "Technical leadership",
+      "Project scoping",
+      "Risk framing",
+      "Cross-team coordination"
     ],
+    summary:
+      "Led a 10-person engineering team delivering an AI-powered financial intelligence strategy and LLM agent for a Fortune 500 / Big Tech client. Focused on scoping, system design, and decision quality rather than process overhead.",
+    body: [],
     sections: {
-      context: [
-        "Cross-team delivery was slowing when important technical choices were not documented in a reusable way."
-      ],
-      whatIBuilt: [
-        "A lightweight architecture review model with clear decision artifacts.",
-        "Mentorship loops tied to implementation quality rather than checklist compliance."
-      ],
       results: [
-        "Higher consistency in technical decisions and fewer late-stage architectural reversals."
+        "- Defined architecture and milestone structure",
+        "- Translated finance workflows into grounded LLM capabilities",
+        "- Established reusable design review patterns",
+        "- Reduced late-stage architectural reversals"
       ]
     },
-    impactBullets: [
-      "Improved architecture decision traceability.",
-      "Reduced review-cycle churn.",
-      "Raised mentoring quality across teams."
-    ],
     media: {
       type: "image",
       src: "/images/valley.png",
-      alt: "VCG logo"
+      alt: "Valley Consulting Group logo"
     },
     links: []
   },
   {
-    id: "lead-ntab-software-lead",
+    id: "lead-neurotech-software-lead",
     role: "Software Division Lead",
-    org: "Neurotech@Berkeley (NT@B)",
-    dates: "Dec 2025 - Present",
-    tags: ["education", "deep learning", "signal processing", "neural data"],
-    summary:
-      "Organized workshops and learning paths around robust frontend architecture, technical judgment, and product-level thinking.",
-    body: [
-      "The challenge was not just running events; it was building repeatable learning pathways that connected implementation mechanics to product outcomes.",
-      "I designed workshop tracks, reusable quality frameworks, and mentorship handoffs so participants could keep growing after the initial sessions.",
-      "This created a more durable community learning loop and reinforced my approach to leadership through clarity and transferability."
+    org: "Neurotech@Berkeley",
+    dates: "2025 - Present",
+    tags: [
+      "EEG modeling",
+      "Signal processing",
+      "Experimental design",
+      "Neural decoding",
+      "Evaluation pipelines",
+      "Team mentorship",
+      "ML code review",
+      "Research coordination"
     ],
+    summary:
+      "Led two non-invasive neurotechnology projects in EEG-based gait intent decoding and neural language decoding. Focused on experimental scope, modeling constraints, and execution quality.",
+    body: [],
     sections: {
-      context: [
-        "Most learning events were one-off and lacked continuity between sessions."
-      ],
-      whatIBuilt: [
-        "Progressive workshop structure with practical architecture themes.",
-        "Reusable engineering checklists and follow-up guidance."
-      ],
       results: [
-        "Higher participant retention and better translation of workshop content into real project practice."
+        "- Defined model targets and evaluation pipelines",
+        "- Contributed core ML and signal-processing code",
+        "- Scaled recruiting, onboarding, and mentorship processes",
+        "- Increased technical depth and delivery consistency across teams"
       ]
     },
     media: {
       type: "image",
       src: "/images/neurotech.jpeg",
-      alt: "NTAB logo"
+      alt: "Neurotech@Berkeley logo"
     },
-    note:
-      "Some workshop artifacts remain private because they were developed with partner organizations.",
-    links: [{ label: "Workshop Archive", href: "https://example.com/workshops" }]
-  }
-];
-
-const interestsSections: EditorialBodySection[] = [
-  {
-    id: "interests-interface-economics",
-    heading: "Interface economics",
-    body:
-      "A recurring thread in my work is how interface constraints shape behavior. I am interested in the way defaults, friction, ambiguity, and undo cost influence decision quality inside tools. That interest shows up in operational dashboards just as much as it does in consumer-facing flows."
-  },
-  {
-    id: "interests-applied-cognition",
-    heading: "Applied cognition",
-    body:
-      "I spend a lot of time thinking about bounded attention: what people can realistically hold in working memory, what kinds of state transitions remain legible under stress, and how interfaces can expose uncertainty without overwhelming the person using them."
-  },
-  {
-    id: "interests-aesthetics",
-    heading: "Restrained visual systems",
-    body:
-      "I like technical visuals that feel precise rather than decorative. Motion should reinforce system state, visual hierarchy should lower interpretation cost, and density should come from useful information rather than ornamental complexity."
+    links: []
   }
 ];
 
@@ -235,20 +211,27 @@ const aboutSections: EditorialBodySection[] = [
   {
     id: "about-thesis",
     heading: "What I optimize for",
-    body:
-      "I care about interfaces for complex systems, especially when the product has to balance reliability, technical depth, and a calm user experience. I prefer architectures with explicit state transitions, typed contracts, and operational visibility because they tend to age better under real usage."
+    body: `I optimize for systems that remain understandable over time.
+
+That usually means explicit state transitions instead of hidden side effects, typed boundaries between components, and interfaces that reflect system truth rather than masking it. I prefer architectures where the UI and backend share a consistent event model. When state and timing are first-class concepts, teams debug faster and users make better decisions.`
   },
   {
     id: "about-collaboration",
     heading: "How I work",
-    body:
-      "I work best in environments where technical arguments are concrete, ownership is clear, and feedback loops are short. I document intent, surface risks early, and try to make handoffs smoother by keeping decisions traceable instead of implicit."
+    body: `I work best where ownership is clear and technical arguments are concrete. I tend to write down intent before implementation, surface tradeoffs early, and keep decisions traceable across system boundaries.
+
+I value short feedback loops. I would rather ship a constrained, testable version early than debate abstractions in isolation.`
   },
   {
     id: "about-links",
     heading: "Where to find me",
-    body:
-      "Outside the site, the easiest places to reach me are GitHub, LinkedIn, and email. I am especially interested in work that sits at the boundary of product quality, system clarity, and restrained interaction design."
+    body: `GitHub, LinkedIn, and email are the easiest ways to reach me.
+
+I am especially interested in work that involves:
+
+- Complex systems with real operational consequences
+- Interfaces that influence decision quality
+- Human-AI interaction where oversight still matters`
   }
 ];
 
@@ -258,10 +241,10 @@ export const sectionPages: Record<SectionId, SectionPageDefinition> = {
     title: "Experience",
     route: "/experience",
     dek:
-      "I build products where interaction quality and system reliability must both hold under pressure.",
-    chips: ["Frontend Systems", "Observability", "Real-Time UX"],
+      "Applied software engineering across LLM systems, signal pipelines, and runtime interface design.",
+    chips: ["ML Systems", "Signal Processing", "Runtime Interfaces"],
     intro:
-      "Most of my work has lived at the boundary between interface design and operational truth. I care about products that stay readable under stress, and I tend to work on systems where state, timing, and trust all matter at once.",
+      "I work on systems where reliability, runtime performance, and interpretation quality all matter at the same time.",
     items: experienceItems
   },
   projects: {
@@ -269,20 +252,20 @@ export const sectionPages: Record<SectionId, SectionPageDefinition> = {
     title: "Projects",
     route: "/projects",
     dek:
-      "Compact experiments in product quality and system constraints, designed to prove utility quickly.",
-    chips: ["Full-Stack", "Hackathon", "Simulation"],
+      "Selected builds across neural decoding, retrieval systems, AR robotics, and local multimodal agents.",
+    chips: ["Full-Stack", "ML Systems", "Interactive Tools"],
     intro:
-      "Projects are where I test interaction models, technical constraints, and product hypotheses in a tighter loop. The goal is usually not scale on day one. It is to make one idea concrete enough to evaluate honestly."
+      "These projects are where I test ideas quickly, then tighten them into usable systems with clear tradeoffs and measurable behavior."
   },
   leadership: {
     id: "leadership",
     title: "Leadership",
     route: "/leadership",
     dek:
-      "I lead through technical clarity: better decision quality, clearer contracts, and reliable delivery.",
-    chips: ["Mentorship", "Architecture", "Community"],
+      "Technical leadership focused on system clarity, execution quality, and decision accountability.",
+    chips: ["Project Leadership", "Architecture", "Mentorship"],
     intro:
-      "Leadership, for me, is mostly a question of reducing ambiguity for other people. I try to create conditions where decisions are more legible, tradeoffs are more explicit, and teams can move with less unnecessary friction.",
+      "I focus leadership effort on reducing ambiguity and improving decision quality so teams can move faster with fewer reversals.",
     items: leadershipItems
   },
   interests: {
@@ -290,24 +273,37 @@ export const sectionPages: Record<SectionId, SectionPageDefinition> = {
     title: "Interests",
     route: "/interests",
     dek:
-      "My thinking map spans intelligence systems, human factors, and restrained visual communication.",
-    chips: ["HCI", "Systems Thinking", "Design Engineering"],
+      "Intellectual themes I return to when designing systems, interfaces, and human-AI workflows.",
+    chips: ["Decision Quality", "Legibility", "Human-AI"],
     intro:
-      "The work on this site is held together by a few recurring interests: how interfaces shape behavior, how people reason under constraint, and how technical visuals can communicate with more precision and less noise.",
-    sections: interestsSections
+      "These are the intellectual threads I return to across product work and systems design: recurring lenses that shape how I frame problems, scope tradeoffs, and evaluate interface decisions."
   },
   about: {
     id: "about",
     title: "About",
     route: "/about",
     dek:
-      "I build trustworthy interfaces for complex systems with an emphasis on calm interaction and long-term maintainability.",
-    chips: ["Reliability", "Interaction Design", "Team Systems"],
+      "Computer Science + Neuroscience perspective on software systems, interfaces, and decision-making under constraints.",
+    chips: ["System Clarity", "Human Factors", "Maintainability"],
     intro:
-      "I am interested in building software that stays coherent as systems get more complex. That usually means caring about state, communication, maintainability, and how interaction design influences trust over time.",
+      "I'm an undergraduate at UC Berkeley studying Computer Science and Neuroscience (GPA 3.9).\n\nI build software that stays coherent as systems get more complex. Most of my work sits at the boundary between system behavior and human interpretation - where state, timing, and decision-making all matter at once.\n\nComputer science trained me to design and reason about large systems. Neuroscience sharpened my interest in how people process information under constraints. Together, they shape how I think of interfaces as visuals and cognitive environments.\n\nComplexity is not the problem. Unclear state and weak feedback loops are.",
     sections: aboutSections
   }
 };
+
+export interface SectionMeta {
+  id: SectionId;
+  title: string;
+  dek: string;
+}
+
+export const sectionMeta: ReadonlyArray<SectionMeta> = sectionPageOrder.map(
+  (sectionId) => ({
+    id: sectionId,
+    title: sectionPages[sectionId].title,
+    dek: sectionPages[sectionId].dek
+  })
+);
 
 export const isSectionId = (value: string): value is SectionId =>
   sectionPageOrder.includes(value as SectionId);

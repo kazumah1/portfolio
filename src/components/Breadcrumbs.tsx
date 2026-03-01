@@ -17,7 +17,7 @@ export const Breadcrumbs = ({ items }: { items: BreadcrumbItem[] }): JSX.Element
   }
 
   return (
-    <nav aria-label="Breadcrumb" className="mb-7">
+    <nav aria-label="Breadcrumb" className="mb-5">
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-[0.62rem] uppercase tracking-[0.16em] text-fg/52">
         {items.map((item, index) => {
           const isLast = index === items.length - 1;

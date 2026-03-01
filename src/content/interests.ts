@@ -8,41 +8,70 @@ export type Interest = {
 export const interestsIntro =
   "These are the intellectual threads I return to across product work and systems design: recurring lenses that shape how I frame problems, scope tradeoffs, and evaluate interface decisions.";
 
-// Add or edit items here. Keep titles concise (2-5 words) and descriptions tight.
 export const interests: Interest[] = [
   {
-    id: "interest-interface-economics",
-    title: "Interface economics",
+    id: "interest-systems-grounded-in-physics",
+    title: "Systems grounded in physics",
     description:
-      "I study how defaults, friction, and action cost influence decision quality inside tools. The focus is less on visual novelty and more on whether interfaces help people make better calls under real constraints.",
-    tags: ["decision quality", "defaults", "workflow design"]
+      "I'm interested in systems that are constrained by physical reality - latency, bandwidth, energy, signal noise. I prefer models that acknowledge these constraints rather than abstracting them away.",
+    tags: [
+      "physical constraints",
+      "signal modeling",
+      "latency",
+      "energy systems",
+      "real-world modeling"
+    ]
   },
   {
-    id: "interest-bounded-attention",
-    title: "Bounded attention",
+    id: "interest-world-models-and-perception",
+    title: "World models and perception",
     description:
-      "I am interested in how much state people can actually track at once, especially in high-noise contexts. This usually translates into explicit state transitions, careful hierarchy, and less ambiguous interaction language.",
-    tags: ["cognitive load", "state clarity", "signal density"]
+      "I'm interested in how systems - biological or artificial - build internal models of the world from partial observations. This includes perception pipelines, state estimation, and representation learning.",
+    tags: [
+      "world models",
+      "state estimation",
+      "representation learning",
+      "sensor fusion",
+      "perception systems"
+    ]
   },
   {
-    id: "interest-operational-legibility",
-    title: "Operational legibility",
+    id: "interest-decision-making-and-learning",
+    title: "Decision making and learning",
     description:
-      "My recurring question is whether a system can be reasoned about quickly when something is going wrong. I care about designs that preserve traceability, reveal causal structure, and reduce interpretive guesswork.",
-    tags: ["observability", "traceability", "incident UX"]
+      "My neuroscience background drives questions around how decisions emerge from noisy inputs, how learning reshapes internal representations, and how behavior stabilizes under feedback.\n\nI'm especially interested in reinforcement learning, credit assignment, and how biological systems manage stability despite continuous adaptation.",
+    tags: [
+      "decision theory",
+      "reinforcement learning",
+      "credit assignment",
+      "neural dynamics",
+      "behavior modeling"
+    ]
   },
   {
-    id: "interest-restrained-visual-systems",
-    title: "Restrained visual systems",
+    id: "interest-energy-efficiency-of-intelligence",
+    title: "Energy efficiency of intelligence",
     description:
-      "I prefer visual systems where motion, contrast, and density are calibrated to support interpretation instead of decoration. The goal is a calmer surface that still communicates technical depth.",
-    tags: ["visual hierarchy", "motion restraint", "precision"]
+      "The human brain runs on ~20 watts while supporting perception, reasoning, and motor control. That constraint matters.\n\nI'm interested in how energy efficiency shapes computation - both in biological systems and in on-device AI.",
+    tags: [
+      "energy-efficient computing",
+      "neuromorphic ideas",
+      "on-device AI",
+      "computational efficiency",
+      "brain metabolism"
+    ]
   },
   {
-    id: "interest-human-ai-collaboration",
-    title: "Human-AI collaboration",
+    id: "interest-human-ai-interaction",
+    title: "Human-AI interaction",
     description:
-      "I explore interface patterns that keep human oversight meaningful when models are involved. This includes confidence signaling, reversible actions, and interaction structures that make model behavior easier to interrogate.",
-    tags: ["human in the loop", "confidence", "auditability"]
+      "As models grow more capable, interface design becomes a systems problem. I care about keeping oversight meaningful - through confidence signaling, reversibility, and structural constraints.",
+    tags: [
+      "human-in-the-loop",
+      "model transparency",
+      "tool-based agents",
+      "confidence estimation",
+      "auditability"
+    ]
   }
 ];

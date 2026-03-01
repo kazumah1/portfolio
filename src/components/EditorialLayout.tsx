@@ -55,7 +55,7 @@ export const EditorialLayout = ({
         initial={{ opacity: 0, y: 8 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.2, ease: [0.22, 1, 0.36, 1] }}
-        className="mx-auto w-full max-w-[1240px] px-6 pb-24 pt-5 sm:px-10 sm:pt-7"
+        className="mx-auto w-full max-w-[1240px] px-6 pb-24 pt-2 sm:px-10 sm:pt-4"
       >
         <div className="mx-auto w-full max-w-[820px]">
           {breadcrumbs && breadcrumbs.length > 0 ? (

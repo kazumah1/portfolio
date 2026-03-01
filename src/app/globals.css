@@ -64,11 +64,19 @@ a {
 }
 
 .editorial-prose > * + * {
-  margin-top: 1rem;
+  margin-top: 1.45rem;
+}
+
+.editorial-prose > * + :is(h2, h3) {
+  margin-top: 1.02rem;
 }
 
 .editorial-prose p {
   margin: 0;
+}
+
+.editorial-prose p + p {
+  margin-top: 1.45rem;
 }
 
 .editorial-prose h2,
@@ -83,6 +91,15 @@ a {
 .editorial-prose ol {
   margin: 0;
   padding-left: 1.2rem;
+  list-style-position: outside;
+}
+
+.editorial-prose ul {
+  list-style-type: disc;
+}
+
+.editorial-prose ol {
+  list-style-type: decimal;
 }
 
 .editorial-prose li + li {

@@ -114,7 +114,7 @@ export const SectionPageClient = ({ sectionId }: SectionPageClientProps): JSX.El
       ) : null}
 
       {section.id === "about" && section.sections ? (
-        <div className="space-y-16">
+        <div className="space-y-10">
           {section.sections.map((entry) => (
             <section key={entry.id} className="max-w-[72ch] space-y-4">
               {entry.heading ? (

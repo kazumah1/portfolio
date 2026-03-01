@@ -24,7 +24,7 @@ export const AccordionItem = ({
   onToggle,
   controlsId
 }: AccordionItemProps): JSX.Element => {
-  const shownTags = (item.tags ?? []).slice(0, 3);
+  const shownTags = (item.tags ?? []);
 
   return (
     <article className="rounded-[22px] bg-fg/[0.015] px-4 py-4 transition-colors duration-150 hover:bg-fg/[0.025] sm:px-5">
@@ -102,14 +102,33 @@ export const AccordionItem = ({
                       return null;
                     }
 
+                    const bulletCandidates = paragraphs.map((paragraph) => {
+                      const normalized = paragraph.trim();
+                      if (normalized.startsWith("- ")) {
+                        return normalized.slice(2).trim();
+                      }
+                      return null;
+                    });
+                    const isBulletSection =
+                      bulletCandidates.length > 0 &&
+                      bulletCandidates.every((candidate) => candidate !== null);
+
                     return (
                       <section key={`${item.id}-${key}`} className="space-y-3">
                         <h4 className="text-[1.02rem] font-medium tracking-[-0.02em] text-fg">
                           {subsectionLabel[key]}
                         </h4>
-                        {paragraphs.map((paragraph, index) => (
-                          <p key={`${item.id}-${key}-${index}`}>{paragraph}</p>
-                        ))}
+                        {isBulletSection ? (
+                          <ul className="list-disc space-y-2 pl-5">
+                            {bulletCandidates.map((bullet, index) => (
+                              <li key={`${item.id}-${key}-bullet-${index}`}>{bullet}</li>
+                            ))}
+                          </ul>
+                        ) : (
+                          paragraphs.map((paragraph, index) => (
+                            <p key={`${item.id}-${key}-${index}`}>{paragraph}</p>
+                          ))
+                        )}
                       </section>
                     );
                   })

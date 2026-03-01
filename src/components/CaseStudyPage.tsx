@@ -78,7 +78,7 @@ export const CaseStudyPage = ({
         </div>
       }
     >
-      <div className="space-y-16">
+      <div className="space-y-11">
         <div className="max-w-[960px]">
           <HeroMediaBlock media={heroMedia} />
         </div>

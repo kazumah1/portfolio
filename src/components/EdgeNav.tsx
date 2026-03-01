@@ -1,7 +1,7 @@
 "use client";
 
 import type { SectionId } from "@/content/siteContent";
-import { sectionMeta } from "@/content/siteContent";
+import { sectionMeta } from "@/content/sections";
 import { cn } from "@/lib/utils";
 
 interface EdgeNavProps {
