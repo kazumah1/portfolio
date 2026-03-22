@@ -44,21 +44,23 @@ export const EdgeNav = ({
                 onBlur={() => onHover(null)}
                 onClick={() => onSelect(section.id)}
               >
-                <span className="absolute inset-0 overflow-hidden" aria-hidden="true">
+                <span className="relative inline-block px-0.5 py-0">
+                  <span className="absolute inset-0 overflow-hidden" aria-hidden="true">
+                    <span
+                      className={cn(
+                        "absolute inset-0 bg-accent transition-transform duration-300 ease-out",
+                        isActive ? "translate-x-0" : "-translate-x-[110%]"
+                      )}
+                    />
+                  </span>
                   <span
                     className={cn(
-                      "absolute inset-0 bg-accent transition-transform duration-300 ease-out",
-                      isActive ? "translate-x-0" : "-translate-x-[110%]"
+                      "relative z-10 transition-colors duration-300",
+                      isActive ? "text-black" : "text-white"
                     )}
-                  />
-                </span>
-                <span
-                  className={cn(
-                    "relative z-10 transition-colors duration-300",
-                    isActive ? "text-black" : "text-white"
-                  )}
-                >
-                  {section.title}
+                  >
+                    {section.title}
+                  </span>
                 </span>
               </button>
             </Fragment>
