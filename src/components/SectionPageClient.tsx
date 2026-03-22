@@ -72,6 +72,17 @@ export const SectionPageClient = ({ sectionId }: SectionPageClientProps): JSX.El
     </div>
   ) : (
     <div className="max-w-[70ch] space-y-5">
+      {isAboutSection && (
+        <div className="mb-6">
+          <div className="h-36 w-36 overflow-hidden rounded-full border border-fg/10 bg-fg/6">
+            <img
+              src="/images/profile.jpg"
+              alt="Profile photo"
+              className="h-full w-full object-cover"
+            />
+          </div>
+        </div>
+      )}
       <MarkdownContent content={section.intro} />
       <a
         href="#items"

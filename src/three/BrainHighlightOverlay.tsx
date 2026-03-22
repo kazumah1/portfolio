@@ -104,7 +104,7 @@ export const BrainHighlightOverlay = ({
 
   return (
     <>
-      <points ref={haloPointsRef} geometry={geometry} visible={false}>
+      <points ref={haloPointsRef} geometry={geometry} visible={false} renderOrder={1}>
         <pointsMaterial
           ref={haloMaterialRef}
           transparent
@@ -122,7 +122,7 @@ export const BrainHighlightOverlay = ({
         />
       </points>
 
-      <points ref={overlayPointsRef} geometry={geometry} visible={false}>
+      <points ref={overlayPointsRef} geometry={geometry} visible={false} renderOrder={2}>
         <pointsMaterial
           ref={overlayMaterialRef}
           transparent
