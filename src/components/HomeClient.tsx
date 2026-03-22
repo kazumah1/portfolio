@@ -24,6 +24,7 @@ export const HomeClient = (): JSX.Element => {
   const [isMobileViewport, setIsMobileViewport] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [touchedSectionId, setTouchedSectionId] = useState<SectionId | null>(null);
+  const [hoveredMenuSectionId, setHoveredMenuSectionId] = useState<SectionId | null>(null);
   const [emailCopied, setEmailCopied] = useState(false);
   const emailResetRef = useRef<number | null>(null);
 
@@ -230,12 +231,14 @@ export const HomeClient = (): JSX.Element => {
             <nav aria-label="Primary sections" className="mt-14 flex flex-col gap-2.5">
               {sectionPageOrder.map((sectionId) => {
                 const isActive =
-                  touchedSectionId === sectionId || navigatingSectionId === sectionId;
+                  touchedSectionId === sectionId || navigatingSectionId === sectionId || hoveredMenuSectionId === sectionId;
                 return (
                   <button
                     key={sectionId}
                     type="button"
                     className="text-left focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent/70"
+                    onMouseEnter={() => setHoveredMenuSectionId(sectionId)}
+                    onMouseLeave={() => setHoveredMenuSectionId(null)}
                     onTouchStart={() => setTouchedSectionId(sectionId)}
                     onTouchEnd={() => setTouchedSectionId(null)}
                     onClick={() => {
