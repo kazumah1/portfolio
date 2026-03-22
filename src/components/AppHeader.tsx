@@ -110,48 +110,78 @@ export const AppHeader = ({ className }: { className?: string }): JSX.Element =>
     }
   };
 
+  const renderCopyEmailButton = (compact: boolean) => (
+    <button
+      type="button"
+      onClick={handleCopyEmail}
+      aria-label="Copy email address to clipboard"
+      className="group relative inline-flex items-center gap-2 normal-case tracking-[0.08em] text-fg/72 transition-colors duration-150 hover:text-accent focus-visible:outline-none focus-visible:text-accent"
+    >
+      <span>{compact ? "email" : emailDisplay}</span>
+      <CopyIcon state={copyState} />
+      <span className="sr-only">
+        {copyState === "copied"
+          ? "Copied to clipboard"
+          : copyState === "error"
+            ? "Copy failed"
+            : "Copy email"}
+      </span>
+    </button>
+  );
+
   return (
     <header
       className={cn(
-        "mx-auto flex min-h-[72px] w-full max-w-[1440px] items-start justify-between px-6 pt-6 sm:min-h-[80px] sm:px-10 sm:pt-8",
+        "mx-auto min-h-[72px] w-full max-w-[1440px] px-6 pt-6 sm:min-h-[80px] sm:px-10 sm:pt-8",
         className
       )}
     >
-      <Link
-        href="/"
-        onClick={() => setHover(null)}
-        className="font-mono text-[0.78rem] uppercase tracking-[0.24em] text-fg/82 transition-colors duration-150 hover:text-accent"
-      >
-        {siteContent.siteConfig.name}
-      </Link>
-
-      <nav
-        className="flex items-center gap-4 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-fg/72 sm:gap-5"
-        aria-label="Social links"
-      >
-        <a href={siteContent.siteConfig.links.github} target="_blank" rel="noreferrer" className="transition-colors duration-150 hover:text-accent">
-          GitHub
-        </a>
-        <a href={siteContent.siteConfig.links.linkedin} target="_blank" rel="noreferrer" className="transition-colors duration-150 hover:text-accent">
-          LinkedIn
-        </a>
-        <button
-          type="button"
-          onClick={handleCopyEmail}
-          aria-label="Copy email address to clipboard"
-          className="group relative inline-flex items-center gap-2 normal-case tracking-[0.08em] text-fg/72 transition-colors duration-150 hover:text-accent focus-visible:outline-none focus-visible:text-accent"
+      <div className="hidden w-full items-start justify-between sm:flex">
+        <Link
+          href="/"
+          onClick={() => setHover(null)}
+          className="font-mono text-[0.78rem] uppercase tracking-[0.24em] text-fg/82 transition-colors duration-150 hover:text-accent"
         >
-          <span>{emailDisplay}</span>
-          <CopyIcon state={copyState} />
-          <span className="sr-only">
-            {copyState === "copied"
-              ? "Copied to clipboard"
-              : copyState === "error"
-                ? "Copy failed"
-                : "Copy email"}
-          </span>
-        </button>
-      </nav>
+          {siteContent.siteConfig.name}
+        </Link>
+
+        <nav
+          className="flex items-center gap-4 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-fg/72 sm:gap-5"
+          aria-label="Social links"
+        >
+          <a href={siteContent.siteConfig.links.github} target="_blank" rel="noreferrer" className="transition-colors duration-150 hover:text-accent">
+            GitHub
+          </a>
+          <a href={siteContent.siteConfig.links.linkedin} target="_blank" rel="noreferrer" className="transition-colors duration-150 hover:text-accent">
+            LinkedIn
+          </a>
+          {renderCopyEmailButton(false)}
+        </nav>
+      </div>
+
+      <div className="flex w-full flex-col gap-2.5 sm:hidden">
+        <div className="flex items-center justify-between">
+          <Link
+            href="/"
+            onClick={() => setHover(null)}
+            className="font-mono text-[0.78rem] uppercase tracking-[0.24em] text-fg/82 transition-colors duration-150 hover:text-accent"
+          >
+            {siteContent.siteConfig.name}
+          </Link>
+          {renderCopyEmailButton(true)}
+        </div>
+        <nav
+          className="flex items-center gap-4 font-mono text-[0.66rem] uppercase tracking-[0.18em] text-fg/72"
+          aria-label="Social links"
+        >
+          <a href={siteContent.siteConfig.links.github} target="_blank" rel="noreferrer" className="transition-colors duration-150 hover:text-accent">
+            GitHub
+          </a>
+          <a href={siteContent.siteConfig.links.linkedin} target="_blank" rel="noreferrer" className="transition-colors duration-150 hover:text-accent">
+            LinkedIn
+          </a>
+        </nav>
+      </div>
 
       {copyToast ? (
         <div

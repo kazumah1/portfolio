@@ -53,6 +53,7 @@ interface BrainPointsProps {
   hoveredSectionId: SectionId | null;
   navigationSectionId: SectionId | null;
   onNavigationPose?: (pose: BrainPose) => void;
+  mobileMode: boolean;
   isModalOpen: boolean;
   isScrolling: boolean;
   prefersReducedMotion: boolean;
@@ -106,6 +107,7 @@ export const BrainPoints = ({
   hoveredSectionId,
   navigationSectionId,
   onNavigationPose,
+  mobileMode,
   isModalOpen,
   isScrolling,
   prefersReducedMotion,
@@ -205,10 +207,10 @@ export const BrainPoints = ({
   }, [geometry]);
 
   // Hover state is nav-only; debug preview is fallback-only in development.
-  const activeHoverSection = hoveredSectionId ?? debugPreviewSectionId;
-  const activeInteractiveSection = navigationSectionId ?? activeHoverSection;
-  const focusSectionId = isModalOpen ? null : activeInteractiveSection;
-  const highlightSectionId = isModalOpen ? null : activeInteractiveSection;
+  const activeHoverSection = mobileMode ? null : hoveredSectionId ?? debugPreviewSectionId;
+  const activeInteractiveSection = mobileMode ? null : navigationSectionId ?? activeHoverSection;
+  const focusSectionId = isModalOpen || mobileMode ? null : activeInteractiveSection;
+  const highlightSectionId = isModalOpen || mobileMode ? null : activeInteractiveSection;
 
   useEffect(() => {
     if (!spots || !highlightSectionId) {
@@ -248,9 +250,9 @@ export const BrainPoints = ({
     const pointer = pointerRef.current;
     const isNavigating = Boolean(navigationSectionId);
     const pointerX =
-      pointer?.inside && !isNavigating ? clamp(pointer.x, -1, 1) : 0;
+      pointer?.inside && !isNavigating && !mobileMode ? clamp(pointer.x, -1, 1) : 0;
     const pointerY =
-      pointer?.inside && !isNavigating ? clamp(pointer.y, -1, 1) : 0;
+      pointer?.inside && !isNavigating && !mobileMode ? clamp(pointer.y, -1, 1) : 0;
 
     let motionScale = 1;
     if (prefersReducedMotion) {

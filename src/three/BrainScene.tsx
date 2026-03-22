@@ -2,6 +2,7 @@
 
 import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
+import type { PointerEvent as ReactPointerEvent } from "react";
 import * as THREE from "three";
 
 import type { SectionId } from "@/content/siteContent";
@@ -14,11 +15,13 @@ import { CAMERA_DISTANCE, CAMERA_FOV, FOG_FAR, FOG_NEAR } from "./brainTuning";
 interface BrainSceneProps {
   navigationSectionId?: SectionId | null;
   onNavigationPose?: (pose: BrainPose) => void;
+  mobileMode?: boolean;
 }
 
 export const BrainScene = ({
   navigationSectionId = null,
-  onNavigationPose
+  onNavigationPose,
+  mobileMode = false
 }: BrainSceneProps): JSX.Element => {
   const hoveredSectionId = useUIStore((state) => state.hoveredSectionId);
   const isModalOpen = useUIStore((state) => state.isModalOpen);
@@ -31,6 +34,7 @@ export const BrainScene = ({
   const [previewRegionStep, setPreviewRegionStep] = useState(0);
 
   const pointerRef = useRef<PointerState>({ x: 0, y: 0, inside: false });
+  const pointerReleaseTimeoutRef = useRef<number | null>(null);
 
   const camera = useMemo(
     () => ({
@@ -41,6 +45,10 @@ export const BrainScene = ({
   );
 
   useEffect(() => {
+    if (mobileMode) {
+      return;
+    }
+
     const onPointerMove = (event: PointerEvent) => {
       pointerRef.current.x = (event.clientX / window.innerWidth) * 2 - 1;
       pointerRef.current.y = 1 - (event.clientY / window.innerHeight) * 2;
@@ -69,6 +77,14 @@ export const BrainScene = ({
       window.removeEventListener("pointermove", onPointerMove);
       window.removeEventListener("pointerout", onPointerExit);
       window.removeEventListener("blur", onBlur);
+    };
+  }, [mobileMode]);
+
+  useEffect(() => {
+    return () => {
+      if (pointerReleaseTimeoutRef.current !== null) {
+        window.clearTimeout(pointerReleaseTimeoutRef.current);
+      }
     };
   }, []);
 
@@ -118,8 +134,74 @@ export const BrainScene = ({
 
   const debugPreviewSectionId = previewOrder[previewRegionStep];
 
+  const updatePointerFromEvent = (
+    event: ReactPointerEvent<HTMLDivElement>,
+    keepInside: boolean
+  ) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    if (rect.width <= 0 || rect.height <= 0) {
+      pointerRef.current.inside = false;
+      return;
+    }
+
+    const normalizedX = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    const normalizedY = 1 - ((event.clientY - rect.top) / rect.height) * 2;
+
+    pointerRef.current.x = normalizedX;
+    pointerRef.current.y = normalizedY;
+    pointerRef.current.inside = keepInside;
+  };
+
+  const handleMobilePointerDown = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (!mobileMode) {
+      return;
+    }
+
+    if (pointerReleaseTimeoutRef.current !== null) {
+      window.clearTimeout(pointerReleaseTimeoutRef.current);
+      pointerReleaseTimeoutRef.current = null;
+    }
+
+    updatePointerFromEvent(event, true);
+  };
+
+  const handleMobilePointerMove = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (!mobileMode) {
+      return;
+    }
+
+    updatePointerFromEvent(event, true);
+  };
+
+  const handleMobilePointerRelease = (event: ReactPointerEvent<HTMLDivElement>) => {
+    if (!mobileMode) {
+      return;
+    }
+
+    updatePointerFromEvent(event, true);
+
+    if (pointerReleaseTimeoutRef.current !== null) {
+      window.clearTimeout(pointerReleaseTimeoutRef.current);
+    }
+
+    pointerReleaseTimeoutRef.current = window.setTimeout(() => {
+      pointerRef.current.inside = false;
+      pointerRef.current.x = 0;
+      pointerRef.current.y = 0;
+      pointerReleaseTimeoutRef.current = null;
+    }, 120);
+  };
+
   return (
-    <div className="relative h-full w-full" aria-label="Interactive brain scene">
+    <div
+      className="relative h-full w-full"
+      aria-label="Interactive brain scene"
+      onPointerDown={handleMobilePointerDown}
+      onPointerMove={handleMobilePointerMove}
+      onPointerUp={handleMobilePointerRelease}
+      onPointerCancel={handleMobilePointerRelease}
+      onPointerLeave={handleMobilePointerRelease}
+    >
       <Canvas
         className="h-full w-full"
         camera={camera}
@@ -140,6 +222,7 @@ export const BrainScene = ({
             hoveredSectionId={hoveredSectionId}
             navigationSectionId={navigationSectionId}
             onNavigationPose={onNavigationPose}
+            mobileMode={mobileMode}
             isModalOpen={isModalOpen}
             isScrolling={isScrolling}
             prefersReducedMotion={prefersReducedMotion}

@@ -1,5 +1,7 @@
 "use client";
 
+import { Fragment } from "react";
+
 import type { SectionId } from "@/content/siteContent";
 import { sectionMeta } from "@/content/sections";
 import { cn } from "@/lib/utils";
@@ -11,14 +13,6 @@ interface EdgeNavProps {
   onSelect: (sectionId: SectionId) => void;
 }
 
-const edgePositionBySection: Record<SectionId, string> = {
-  about: "left-1/2 top-8 -translate-x-1/2 sm:top-11",
-  experience: "left-4 top-1/2 -translate-y-1/2 sm:left-7",
-  projects: "right-4 top-1/2 -translate-y-1/2 sm:right-7",
-  leadership: "bottom-8 left-8 sm:bottom-10 sm:left-11",
-  interests: "bottom-8 right-8 sm:bottom-10 sm:right-11"
-};
-
 export const EdgeNav = ({
   hoveredSectionId,
   selectedSectionId,
@@ -27,39 +21,50 @@ export const EdgeNav = ({
 }: EdgeNavProps): JSX.Element => {
   return (
     <nav
-      className="pointer-events-none absolute inset-0 z-30"
+      className="pointer-events-none absolute inset-0 z-30 flex items-end justify-center pb-10"
       aria-label="Primary sections"
     >
-      {sectionMeta.map((section) => {
-        const isActive =
-          hoveredSectionId === section.id || selectedSectionId === section.id;
+      <div className="pointer-events-auto flex items-center">
+        {sectionMeta.map((section, index) => {
+          const isActive =
+            hoveredSectionId === section.id || selectedSectionId === section.id;
 
-        return (
-          <button
-            key={section.id}
-            type="button"
-            aria-label={`Open ${section.title}`}
-            className={cn(
-              "pointer-events-auto absolute rounded px-1 py-1 text-left font-mono text-[0.68rem] uppercase tracking-[0.2em] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent",
-              edgePositionBySection[section.id],
-              isActive ? "text-fg" : "text-muted hover:text-fg"
-            )}
-            onMouseEnter={() => onHover(section.id)}
-            onMouseLeave={() => onHover(null)}
-            onFocus={() => onHover(section.id)}
-            onBlur={() => onHover(null)}
-            onClick={() => onSelect(section.id)}
-          >
-            <span>{section.title}</span>
-            <span
-              className={cn(
-                "mt-1 block h-px w-full origin-left transition-all duration-200",
-                isActive ? "bg-accent" : "w-0 bg-accent"
+          return (
+            <Fragment key={section.id}>
+              {index > 0 && (
+                <div className="mx-8 h-3.5 w-px bg-white/30" aria-hidden="true" />
               )}
-            />
-          </button>
-        );
-      })}
+              <button
+                type="button"
+                aria-label={`Open ${section.title}`}
+                className="relative px-3 py-1.5 font-mono text-[0.68rem] uppercase tracking-[0.2em] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent"
+                onMouseEnter={() => onHover(section.id)}
+                onMouseLeave={() => onHover(null)}
+                onFocus={() => onHover(section.id)}
+                onBlur={() => onHover(null)}
+                onClick={() => onSelect(section.id)}
+              >
+                <span className="absolute inset-0 overflow-hidden" aria-hidden="true">
+                  <span
+                    className={cn(
+                      "absolute inset-0 bg-accent transition-transform duration-300 ease-out",
+                      isActive ? "translate-x-0" : "-translate-x-[110%]"
+                    )}
+                  />
+                </span>
+                <span
+                  className={cn(
+                    "relative z-10 transition-colors duration-300",
+                    isActive ? "text-black" : "text-white"
+                  )}
+                >
+                  {section.title}
+                </span>
+              </button>
+            </Fragment>
+          );
+        })}
+      </div>
     </nav>
   );
 };
