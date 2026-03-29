@@ -10,6 +10,7 @@ export interface SiteConfig {
   tagline: string;
   accentColor: string;
   links: {
+    blog: string;
     github: string;
     linkedin: string;
     email: string;
@@ -35,6 +36,7 @@ export const siteContent: SiteContent = {
     tagline: "Building controlled intelligence interfaces for real-world systems.",
     accentColor: "#FF8A1A",
     links: {
+      blog: "https://kazumah.substack.com/",
       github: "https://github.com/kazumah1",
       linkedin: "https://linkedin.com/in/kazuma-hakushi",
       email: "kazuh@berkeley.edu"

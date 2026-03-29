@@ -149,6 +149,9 @@ export const AppHeader = ({ className }: { className?: string }): JSX.Element =>
           className="flex items-center gap-4 font-mono text-[0.68rem] uppercase tracking-[0.18em] text-fg/72 sm:gap-5"
           aria-label="Social links"
         >
+          <a href={siteContent.siteConfig.links.blog} target="_blank" rel="noreferrer" className="transition-colors duration-150 hover:text-accent">
+            Blog
+          </a>
           <a href={siteContent.siteConfig.links.github} target="_blank" rel="noreferrer" className="transition-colors duration-150 hover:text-accent">
             GitHub
           </a>
@@ -174,6 +177,9 @@ export const AppHeader = ({ className }: { className?: string }): JSX.Element =>
           className="flex items-center gap-4 font-mono text-[0.66rem] uppercase tracking-[0.18em] text-fg/72"
           aria-label="Social links"
         >
+          <a href={siteContent.siteConfig.links.blog} target="_blank" rel="noreferrer" className="transition-colors duration-150 hover:text-accent">
+            Blog
+          </a>
           <a href={siteContent.siteConfig.links.github} target="_blank" rel="noreferrer" className="transition-colors duration-150 hover:text-accent">
             GitHub
           </a>
