@@ -12,7 +12,7 @@ export const ProjectListItem = ({ project }: { project: ProjectCaseStudy }): JSX
     >
       <article className="grid gap-6 sm:gap-8 md:grid-cols-[132px_minmax(0,1fr)] md:items-start">
         <div className="space-y-3">
-          <div className="w-full max-w-[132px] overflow-hidden rounded-[18px] transition duration-200 group-hover:brightness-[1.06]">
+          <div className="w-full max-w-[132px] overflow-hidden rounded-[5px] transition duration-200 group-hover:brightness-[1.06]">
             <ItemMedia media={project.media} title={project.title} sizes="(max-width: 768px) 150px, 132px" />
           </div>
           {project.year ? (

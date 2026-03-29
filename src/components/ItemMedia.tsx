@@ -24,7 +24,7 @@ export const ItemMedia = ({
   title,
   className,
   sizes = "(max-width: 768px) 100vw, 180px",
-  roundedClassName = "rounded-[18px]"
+  roundedClassName = "rounded-[5px]"
 }: ItemMediaProps): JSX.Element => {
   const mediaKind = media?.kind ?? "none";
   const aspect = media?.aspect ?? "landscape";
@@ -49,6 +49,23 @@ export const ItemMedia = ({
           fill
           sizes={sizes}
           className="object-cover transition duration-200 ease-out group-hover:contrast-110"
+        />
+      ) : null}
+
+      {mediaKind === "gif" && src ? (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img src={src} alt={alt} className="h-full w-full object-cover transition duration-200 ease-out group-hover:contrast-110" />
+      ) : null}
+
+      {mediaKind === "video" && src ? (
+        <video
+          src={src}
+          className="h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          aria-label={alt}
         />
       ) : null}
 

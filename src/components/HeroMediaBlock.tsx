@@ -72,7 +72,7 @@ export const HeroMediaBlock = ({
           type="button"
           onClick={() => setIsLightboxOpen(true)}
           className={cn(
-            "group relative block w-full overflow-hidden rounded-[24px] border border-fg/[0.08] bg-fg/[0.03] text-left shadow-[0_24px_80px_rgba(0,0,0,0.24)] transition-colors duration-150 hover:border-fg/20 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent/70",
+            "group relative block w-full overflow-hidden rounded-[5px] border border-fg/[0.08] bg-fg/[0.03] text-left shadow-[0_24px_80px_rgba(0,0,0,0.24)] transition-colors duration-150 hover:border-fg/20 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent/70",
             aspectClass,
             className
           )}
@@ -86,7 +86,7 @@ export const HeroMediaBlock = ({
       ) : (
         <div
           className={cn(
-            "relative overflow-hidden rounded-[24px] border border-fg/[0.08] bg-fg/[0.03] shadow-[0_24px_80px_rgba(0,0,0,0.24)]",
+            "relative overflow-hidden rounded-[5px] border border-fg/[0.08] bg-fg/[0.03] shadow-[0_24px_80px_rgba(0,0,0,0.24)]",
             aspectClass,
             className
           )}
@@ -119,7 +119,7 @@ export const HeroMediaBlock = ({
             <img
               src={media.src}
               alt={media.alt}
-              className="max-h-[92vh] w-full rounded-[14px] border border-fg/14 object-contain"
+              className="max-h-[92vh] w-full rounded-[5px] border border-fg/14 object-contain"
             />
           </div>
         </div>

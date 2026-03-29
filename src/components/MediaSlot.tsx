@@ -14,7 +14,7 @@ export const MediaSlot = ({ media, label, className }: MediaSlotProps): JSX.Elem
 
   if ((type === "image" || type === "gif") && media?.src) {
     return (
-      <div className={cn("relative aspect-square overflow-hidden rounded-[16px] border border-fg/12 bg-fg/[0.02]", className)}>
+      <div className={cn("relative aspect-square overflow-hidden rounded-[5px] border border-fg/12 bg-fg/[0.02]", className)}>
         <Image
           src={media.src}
           alt={media.alt ?? `${label} media`}
@@ -29,7 +29,7 @@ export const MediaSlot = ({ media, label, className }: MediaSlotProps): JSX.Elem
 
   if (type === "video" && media?.src) {
     return (
-      <div className={cn("relative aspect-square overflow-hidden rounded-[16px] border border-fg/12 bg-fg/[0.02]", className)}>
+      <div className={cn("relative aspect-square overflow-hidden rounded-[5px] border border-fg/12 bg-fg/[0.02]", className)}>
         <video
           src={media.src}
           autoPlay
@@ -46,7 +46,7 @@ export const MediaSlot = ({ media, label, className }: MediaSlotProps): JSX.Elem
   return (
     <div
       className={cn(
-        "relative aspect-square overflow-hidden rounded-[16px] border border-fg/12 bg-fg/[0.015] p-4",
+        "relative aspect-square overflow-hidden rounded-[5px] border border-fg/12 bg-fg/[0.015] p-4",
         className
       )}
       aria-label={`${label} placeholder media`}

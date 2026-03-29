@@ -85,7 +85,7 @@ export const CaseStudyPage = ({
 
         {inlineMetaMedia ? (
           <div className="max-w-[220px]">
-            <ItemMedia media={inlineMetaMedia} title={title} sizes="220px" roundedClassName="rounded-[18px]" />
+            <ItemMedia media={inlineMetaMedia} title={title} sizes="220px" roundedClassName="rounded-[5px]" />
           </div>
         ) : null}
 
@@ -102,7 +102,7 @@ export const CaseStudyPage = ({
                   title={`${title} ${section.heading}`}
                   sizes="(max-width: 1024px) 100vw, 680px"
                   className="w-full"
-                  roundedClassName="rounded-[20px]"
+                  roundedClassName="rounded-[5px]"
                 />
               </div>
             ) : null}

@@ -8,7 +8,7 @@ export interface EditorialLink {
 }
 
 export interface EditorialMedia {
-  kind: "image" | "logo" | "none";
+  kind: "image" | "logo" | "video" | "gif" | "none";
   src?: string;
   alt?: string;
   aspect?: "square" | "landscape" | "portrait";

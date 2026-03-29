@@ -61,7 +61,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     slug: "atlas",
     title: "Atlas",
-    year: "2025",
+    year: "2025-2026",
     dek:
       "Atlas is a modular research ingestion and retrieval system that continuously pulls papers from arXiv, OpenReview, and Crossref, compiles PDFs into structured section-level artifacts, computes embeddings, and supports hybrid search through Postgres + pgvector. The system separates ingestion, processing, and ranking so retrieval logic can evolve independently of indexing, and uses content hashing and embedding versioning to maintain reproducibility. Atlas focuses on infrastructure integrity - idempotent pipelines, hybrid (vector + keyword) retrieval, and personalized ranking driven by interaction signals - rather than shallow document indexing.",
     tags: ["FastAPI", "PostgreSQL", "pgvector", "Redis"],
@@ -161,20 +161,20 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
   {
     slug: "live-label",
     title: "LiveLabel",
-    year: "2025",
+    year: "2025-2026",
     dek:
       "LiveLabel is a fully local, real-time computer vision system combining YOLO-based object detection, SAM-based segmentation, multi-object tracking, and motion detection pipelines running at 15-30 FPS. The system integrates asynchronous frame processing with IoU-based tracking and optional local VLM interpretation via Ollama. It is designed to operate without cloud dependency, emphasizing low-latency inference and controllable state transitions.",
     tags: ["OpenCV", "YOLO", "SAM", "Local LLM"],
     media: {
-      kind: "image",
-      src: "/images/project-neurogrid.svg",
-      alt: "LiveLabel project visual",
+      kind: "video",
+      src: "/videos/live-label.mp4",
+      alt: "LiveLabel Demo",
       aspect: "landscape"
     },
     heroMedia: {
-      type: "image",
-      src: "/images/project-neurogrid.svg",
-      alt: "LiveLabel project visual",
+      type: "video",
+      src: "/videos/live-label.mp4",
+      alt: "LiveLabel Demo",
       aspect: "landscape"
     },
     links: [{ label: "GitHub", href: "https://github.com/kazumah1/live-label" }],
